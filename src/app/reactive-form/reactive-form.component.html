@@ -1,0 +1,58 @@
+<div class="container">
+  <div class="justify-content-center shadow py-5 px-3">
+    <h3 class="text-center text-success">Registration Form</h3>
+    <div class="col-md-6">
+      <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="usename">Username</label>
+          <input
+            type="text"
+            placeholder="plase enter the username"
+            formControlName="username"
+            class="form-control"
+            id="username"
+            name="username"
+          />
+          <small
+            *ngIf="
+              myForm.controls['username'].invalid &&
+              myForm.controls['username'].touched
+            "
+            class="text-danger"
+          >
+            <!-- <small *ngIf="myForm.get('usename').error['required']"> </small> -->
+          </small>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input
+            type="text"
+            placeholder="enter email"
+            class="form-control"
+            formControlName="email"
+            id="email"
+            name="email"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            placeholder="please enter the password"
+            name="password"
+            id="password"
+            class="form-control"
+            formControlName="password"
+          />
+        </div>
+
+        <button type="submit" class="btn btn-success">
+          <!-- [disabled]="myForm.invalid" -->
+          Submit
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
